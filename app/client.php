@@ -1,7 +1,7 @@
 <?php
 
-use MeetMatt\Metrics\Client\TokenExpiredException;
 use MeetMatt\Metrics\Client\Api;
+use MeetMatt\Metrics\Client\TokenExpiredException;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
@@ -30,6 +30,7 @@ $listId = null;
 $taskId = null;
 
 $api = new Api('http://nginx');
+writelog('Start');
 
 while (true) {
     usleep(random_int(1, 5) * 100000);

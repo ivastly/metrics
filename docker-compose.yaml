@@ -48,6 +48,7 @@ services:
 
   php:
     image: metrics_php:latest
+    #working_dir: /app
     build:
       context: docker/php
     container_name: metrics_php
