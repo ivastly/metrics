@@ -54,7 +54,7 @@ services:
     container_name: metrics_php
     hostname: php
     volumes:
-      - ./:/app:ro
+      - ./:/app # read / write for goaop cache
 
   mysql:
     image: mysql:5.7.25

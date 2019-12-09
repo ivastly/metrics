@@ -4,8 +4,8 @@ namespace MeetMatt\Metrics\Server\Presentation\Http\TaskList;
 
 use MeetMatt\Metrics\Server\Domain\TaskList\TaskListService;
 use MeetMatt\Metrics\Server\Presentation\Http\ActionAbstract;
-use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 
 class GetAction extends ActionAbstract
 {

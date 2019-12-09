@@ -1,5 +1,6 @@
 <?php declare(strict_types=1);
 
+use MeetMatt\Metrics\Server\Aop\ApplicationAspectKernel;
 use MeetMatt\Metrics\Server\Domain\Metrics\MetricsInterface;
 use Slim\App;
 use Slim\Container;
@@ -7,6 +8,19 @@ use Slim\Container;
 $timerStart = microtime(true);
 
 require_once __DIR__ . '/../vendor/autoload.php';
+
+// Initialize an application aspect container
+$applicationAspectKernel = ApplicationAspectKernel::getInstance();
+$applicationAspectKernel->init(
+	[
+		'debug'        => true, // use 'false' for production mode
+		'appDir'       => __DIR__ . '/..',
+		'cacheDir'     => __DIR__ . '/../app/cache',
+		'includePaths' => [
+			__DIR__ . '/../src/',
+		],
+	]
+);
 
 $container = new Container(require __DIR__ . '/../app/server/config.php');
 

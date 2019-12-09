@@ -5,8 +5,8 @@ namespace MeetMatt\Metrics\Server\Presentation\Http\TaskList;
 use MeetMatt\Metrics\Server\Domain\TaskList\TaskList;
 use MeetMatt\Metrics\Server\Domain\TaskList\TaskListService;
 use MeetMatt\Metrics\Server\Presentation\Http\ActionAbstract;
-use Psr\Http\Message\ServerRequestInterface;
 use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\ServerRequestInterface;
 
 class GetManyAction extends ActionAbstract
 {
@@ -29,12 +29,13 @@ class GetManyAction extends ActionAbstract
         return $this->withJson(
             $response,
             array_map(
-                function (TaskList $taskList) {
-                    return [
-                        'id' => $taskList->getId(),
-                        'name' => $taskList->getName(),
-                    ];
-                },
+				static function (TaskList $taskList)
+				{
+					return [
+						'id'   => $taskList->getId(),
+						'name' => $taskList->getName(),
+					];
+				},
                 $taskLists->getAll()
             )
         );
